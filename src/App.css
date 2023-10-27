@@ -25,7 +25,7 @@
 
     --font-family: "Roboto";
 
-    --paragraph-font-size: clamp(.8rem, 2vw, 1rem);
+    --paragraph-font-size: clamp(.9rem, 2vw, 1rem);
     --heading-font-size: 2.5rem;
 
     --pad: 1.5rem;
@@ -64,8 +64,9 @@ section {
     section {
         flex-direction: row;
         padding: var(--pad);
+        margin-inline: var(--pad);
         gap: var(--pad);
-        max-height: fit-content;
+        height: fit-content;
         /* min-height: 20rem; */
         border-radius: var(--pad);
     }
@@ -87,6 +88,7 @@ h1 {
     color: var(--charcoal-grey);
     font-size: var(--heading-font-size);
     font-weight: 700;
+    line-height: 1;
 }
 
 p {
@@ -106,9 +108,9 @@ article ul li {
     list-style: none;
     padding-left: 2rem;
     font-weight: 400;
-    padding-block: .2rem;
+    padding-block: .4rem;
     font-size: var(--paragraph-font-size);
-    background: url(src/assets/images/icon-list.svg) left top no-repeat;
+    background: url(src/assets/images/icon-list.svg) left 6px no-repeat;
 }
 
 form {
@@ -162,7 +164,7 @@ button {
     padding: var(--size-1);
     border: none;
     border-radius: var(--size-point-5);
-    margin-block: var(--pad);
+    margin-top: var(--pad);
     font-weight: 700;
     font-size: var(--paragraph-font-size);
     letter-spacing: .5px;

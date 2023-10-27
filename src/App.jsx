@@ -3,6 +3,28 @@ import "./App.css";
 import Modal from './Modal';
 
 function App() {
+  const [email, setEmail] = useState('');
+  // checks whether email is valid
+  const [isValid, setIsValid] = useState(false);
+  const [modal, setModal] = useState(false);
+  
+  // called when the email input field changes
+  // updates the 'email' state with the current value of the input field
+  const getEmail = (event) => {
+    setEmail(event.target.value);
+  }
+  
+  /* checks if the email matches the pattern and returns a boolean, 
+  and stores the result in the isValid state*/
+  const openModal = () => {
+    const emailRegex = /^\w+([\.%+-]?\w+)+@\w+([\.-]?\w+)+(\.\w{2,})+$/;
+    const valid = emailRegex.test(email);
+
+    setIsValid(valid);
+    if(valid) setModal(true);
+  }
+
+  // prevents default behavior of form when submitting
   const onSubmit = (event) => {
     event.preventDefault();
   };
@@ -25,13 +47,14 @@ function App() {
             <form onSubmit={onSubmit}>
               <label htmlFor="email">Email address</label>
               <input
-                pattern="/^\w+([\.%+-]?\w+)+@\w+([\.-]?\w+)+(\.\w{2,})+$/g"
+                onChange={getEmail}
+                value={email}
                 type="email"
                 id="email"
                 placeholder="email@company.com"
                 title="Please enter a valid email address"
               />
-              <button>Subscribe to monthly newsletter</button>
+              <button onClick={openModal}>Subscribe to monthly newsletter</button>
             </form>
           </article>
 
@@ -39,17 +62,19 @@ function App() {
             <source
               srcSet="src\assets\images\illustration-sign-up-mobile.svg"
               media="(orientation: portrait)"
-            ></source>
+            />
             <img
               className="newsletter-img"
               src="src\assets\images\illustration-sign-up-desktop.svg"
               alt=""
-            ></img>
+            />
           </picture>
           {/* Sign-up form end */}
         </section>
+        {/* if modal = true, Modal component will open */}
+        {/* passed setModal as props so we can use in our Modal component to close the modal */}
+        {modal && <Modal closeModal={setModal} email={email} />}
       </main>
-      <Modal />
       {/* <div class="attribution">
         Challenge by{" "}
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
