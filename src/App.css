@@ -1,0 +1,176 @@
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto"),
+        url(./assets/fonts/Roboto-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto"),
+        url(./assets/fonts/Roboto-Bold.ttf);
+    font-weight: 700;
+}
+
+:root {
+    --primary-1: hsl(4, 100%, 67%);
+    --primary-2: hsl(347, 98%, 61%);
+    --gradient: linear-gradient(90deg, var(--primary-2) 20%, var(--primary-1) 80%);
+    --dark-slate-grey: hsl(234, 29%, 20%);
+    --charcoal-grey: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
+    --white: hsl(0, 0%, 100%);
+    --invalid-color: hsl(0, 100%, 50%);
+    --invalid-bg-color: hsla(4, 100%, 67%, .2);
+
+    --font-family: "Roboto";
+
+    --paragraph-font-size: clamp(.8rem, 2vw, 1rem);
+    --heading-font-size: 2.5rem;
+
+    --pad: 1.5rem;
+    --size-1: 1rem;
+    --size-point-5: .5rem;
+}
+
+
+body {
+    font-family: var(--font-family), sans-serif;
+    background-color: var(--dark-slate-grey);
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: inherit;
+}
+
+section {
+    display: flex;
+    max-width: 50rem;
+    flex-direction: column-reverse;
+    justify-content: start;
+    background-color: var(--white);
+}
+
+.newsletter-img {
+    max-width: 100%;
+    width: 100%;
+}
+
+@media (min-width: 700px) {
+    section {
+        flex-direction: row;
+        padding: var(--pad);
+        gap: var(--pad);
+        max-height: fit-content;
+        /* min-height: 20rem; */
+        border-radius: var(--pad);
+    }
+
+    .newsletter-img {
+        height: 100%;
+    }
+}
+
+article {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-1);
+    padding: var(--pad);
+}
+
+h1 {
+    color: var(--charcoal-grey);
+    font-size: var(--heading-font-size);
+    font-weight: 700;
+}
+
+p {
+    color: var(--charcoal-grey);
+    font-size: var(--paragraph-font-size);
+    font-weight: 400;
+}
+
+article ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+article ul li {
+    list-style: none;
+    padding-left: 2rem;
+    font-weight: 400;
+    padding-block: .2rem;
+    font-size: var(--paragraph-font-size);
+    background: url(src/assets/images/icon-list.svg) left top no-repeat;
+}
+
+form {
+    display: grid;
+    position: relative;
+    /* gap: var(--size-point-5); */
+}
+
+form label {
+    color: var(--dark-slate-grey);
+    font-weight: 700;
+    font-size: var(--paragraph-font-size);
+}
+
+form input {
+    border: 1px solid var(--grey);
+    padding: var(--size-1);
+    border-radius: var(--size-point-5);
+    color: var(--dark-slate-grey);
+}
+
+form input:invalid:focus {
+    outline: none;
+}
+
+form input:valid:focus {
+    outline: 1px solid var(--dark-slate-grey);
+}
+
+input:invalid {
+    border: 1px solid var(--invalid-color);
+    background: var(--invalid-bg-color);
+    color: var(--invalid-color);
+}
+
+form:invalid::after {
+    content: 'Valid email required';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    height: 1rem;
+    color: var(--invalid-color);
+    font-weight: 700;
+    font-size: var(--paragraph-font-size);
+}
+
+button {
+    background-color: var(--dark-slate-grey);
+    color: var(--white);
+    padding: var(--size-1);
+    border: none;
+    border-radius: var(--size-point-5);
+    margin-block: var(--pad);
+    font-weight: 700;
+    font-size: var(--paragraph-font-size);
+    letter-spacing: .5px;
+    cursor: pointer;
+}
+
+button:focus,
+button:hover {
+    background: var(--gradient);
+    box-shadow: 1px 5px 20px 2px var(--primary-1);
+}
