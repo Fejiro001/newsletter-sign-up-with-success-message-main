@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Modal from './Components/Modal';
+import Modal from './Modal';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -63,13 +63,13 @@ function App() {
 
           <picture>
             <source
-              srcSet="src\assets\images\illustration-sign-up-mobile.svg"
+              srcSet="src/assets/images/illustration-sign-up-mobile.svg"
               media="(orientation: portrait)"
             />
             <img
               className="newsletter-img"
-              src="src\assets\images\illustration-sign-up-desktop.svg"
-              alt=""
+              src="src/assets/images/illustration-sign-up-desktop.svg"
+              alt="newsletter image"
             />
           </picture>
           {/* Sign-up form end */}
