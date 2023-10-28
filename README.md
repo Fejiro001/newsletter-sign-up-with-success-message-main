@@ -39,7 +39,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Solution](https://github.com/Fejiro001/newsletter-sign-up-with-success-message-main)
-- Live Site URL: [Live Site](https://newsletter-sign-up-with-success-message-main-q3fuew3gk.vercel.app)
+- Live Site URL: [Live Site](https://newsletter-sign-up-with-success-message-main-khaki.vercel.app/)
 
 ## My process
 
