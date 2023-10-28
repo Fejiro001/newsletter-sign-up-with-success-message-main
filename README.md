@@ -65,18 +65,18 @@ const [isValid, setIsValid] = useState(false);
 const [modal, setModal] = useState(false);
 
 /* Called when the email input field changes.
-It checks the email if it follows the emailRegex pattern
-and updates the 'email' state with the current value of the input field */
+  It checks the email if it follows the emailRegex pattern
+  and updates the 'email' state with the current value of the input field */
 const getEmail = (event) => {
   const emailRegex = /^\w+([\.%+-]?\w+)+@\w+([\.-]?\w+)+(\.\w{2,})+$/;
   const valid = emailRegex.test(event.target.value);
-  setEmail(event.target.value);
   setIsValid(valid);
+  setEmail(event.target.value);
 };
 
 /* checks if isValid is true and opens the modal if it is */
 const openModal = () => {
-  if (isValid) setModal(true);
+  if (isValid && email !== "") setModal(true);
 };
 ```
 
@@ -101,7 +101,9 @@ Learnt how to do conditional rendering of css classes:
 Opened the Modal component using state and passed props to the component:
 
 ```jsx
-{modal && <Modal closeModal={setModal} email={email} />}
+{
+  modal && <Modal closeModal={setModal} email={email} />;
+}
 ```
 
 ### Continued development
