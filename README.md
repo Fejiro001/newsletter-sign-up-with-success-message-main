@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [](https://github.com/Fejiro001/newsletter-sign-up-with-success-message-main)
-- Live Site URL: [](https://newsletter-sign-up-with-success-message-main-q3fuew3gk.vercel.app)
+- Solution URL: [Solution](https://github.com/Fejiro001/newsletter-sign-up-with-success-message-main)
+- Live Site URL: [Live Site](https://newsletter-sign-up-with-success-message-main-q3fuew3gk.vercel.app)
 
 ## My process
 
