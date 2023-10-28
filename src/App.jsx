@@ -1,30 +1,29 @@
 import { useState } from "react";
 import "./App.css";
-import Modal from './Modal';
+import Modal from './Components/Modal';
 
 function App() {
   const [email, setEmail] = useState('');
   // checks whether email is valid
   const [isValid, setIsValid] = useState(false);
   const [modal, setModal] = useState(false);
-  
-  // called when the email input field changes
-  // updates the 'email' state with the current value of the input field
+
+  /* Called when the email input field changes.
+  It checks the email if it follows the emailRegex pattern
+  and updates the 'email' state with the current value of the input field */
   const getEmail = (event) => {
-    setEmail(event.target.value);
-  }
-  
-  /* checks if the email matches the pattern and returns a boolean, 
-  and stores the result in the isValid state*/
-  const openModal = () => {
     const emailRegex = /^\w+([\.%+-]?\w+)+@\w+([\.-]?\w+)+(\.\w{2,})+$/;
-    const valid = emailRegex.test(email);
-
+    const valid = emailRegex.test(event.target.value);
+    setEmail(event.target.value);
     setIsValid(valid);
-    if(valid) setModal(true);
   }
 
-  // prevents default behavior of form when submitting
+  /* checks if isValid is true and opens the modal if it is */
+  const openModal = () => {
+    if (isValid) setModal(true);
+  }
+
+  /* prevents default behavior of form when submitting */
   const onSubmit = (event) => {
     event.preventDefault();
   };
@@ -44,9 +43,13 @@ function App() {
               <li>And much more!</li>
             </ul>
 
-            <form onSubmit={onSubmit}>
+            <form
+              onSubmit={onSubmit}
+              className={isValid ? '' : 'formInvalid'}
+            >
               <label htmlFor="email">Email address</label>
               <input
+                className={isValid ? 'valid' : 'invalid'}
                 onChange={getEmail}
                 value={email}
                 type="email"
@@ -71,17 +74,19 @@ function App() {
           </picture>
           {/* Sign-up form end */}
         </section>
+
         {/* if modal = true, Modal component will open */}
         {/* passed setModal as props so we can use in our Modal component to close the modal */}
         {modal && <Modal closeModal={setModal} email={email} />}
+
+        <div className="attribution">
+          Challenge by{" "}
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+            Frontend Mentor
+          </a>
+          . Coded by <a href="https://www.frontendmentor.io/profile/Fejiro001">Abere Fejiro</a>.
+        </div>
       </main>
-      {/* <div class="attribution">
-        Challenge by{" "}
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
-          Frontend Mentor
-        </a>
-        . Coded by <a href="#">Your Name Here</a>.
-      </div> */}
     </>
   );
 }

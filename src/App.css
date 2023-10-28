@@ -41,6 +41,7 @@ body {
 
 main {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -67,7 +68,6 @@ section {
         margin-inline: var(--pad);
         gap: var(--pad);
         height: fit-content;
-        /* min-height: 20rem; */
         border-radius: var(--pad);
     }
 
@@ -85,14 +85,14 @@ article {
 }
 
 h1 {
-    color: var(--charcoal-grey);
+    color: var(--dark-slate-grey);
     font-size: var(--heading-font-size);
     font-weight: 700;
     line-height: 1;
 }
 
 p {
-    color: var(--charcoal-grey);
+    color: var(--dark-slate-grey);
     font-size: var(--paragraph-font-size);
     font-weight: 400;
 }
@@ -110,6 +110,7 @@ article ul li {
     font-weight: 400;
     padding-block: .4rem;
     font-size: var(--paragraph-font-size);
+    color: var(--dark-slate-grey);
     background: url(src/assets/images/icon-list.svg) left 6px no-repeat;
 }
 
@@ -125,28 +126,28 @@ form label {
     font-size: var(--paragraph-font-size);
 }
 
-form input {
-    border: 1px solid var(--grey);
+input {
     padding: var(--size-1);
     border-radius: var(--size-point-5);
+}
+
+.valid {
+    border: 1px solid var(--grey);
+    background: var(--white);
     color: var(--dark-slate-grey);
 }
 
-form input:invalid:focus {
-    outline: none;
+.invalid:focus {
+    outline: 1px solid var(--invalid-bg-color);
 }
 
-form input:valid:focus {
-    outline: 1px solid var(--dark-slate-grey);
-}
-
-input:invalid {
+.invalid {
     border: 1px solid var(--invalid-color);
     background: var(--invalid-bg-color);
     color: var(--invalid-color);
 }
 
-form:invalid::after {
+.formInvalid::after {
     content: 'Valid email required';
     position: absolute;
     top: 0;
@@ -175,4 +176,13 @@ button:focus,
 button:hover {
     background: var(--gradient);
     box-shadow: 1px 5px 20px 2px var(--primary-1);
+}
+
+.attribution {
+    color: var(--white);
+}
+
+.attribution a {
+    color: var(--primary-1);
+    text-decoration: none;
 }
