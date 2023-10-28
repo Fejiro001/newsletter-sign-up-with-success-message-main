@@ -5,7 +5,7 @@ import Modal from './Modal';
 function App() {
   const [email, setEmail] = useState('');
   // checks whether email is valid
-  const [isValid, setIsValid] = useState(false);
+  const [isValid, setIsValid] = useState(true);
   const [modal, setModal] = useState(false);
 
   /* Called when the email input field changes.
@@ -64,7 +64,7 @@ function App() {
           <picture>
             <source
               srcSet="/illustration-sign-up-mobile.svg"
-              media="(orientation: portrait)"
+              media="(max-width: 700px)"
             />
             <img
               className="newsletter-img"
@@ -78,14 +78,6 @@ function App() {
         {/* if modal = true, Modal component will open */}
         {/* passed setModal as props so we can use in our Modal component to close the modal */}
         {modal && <Modal closeModal={setModal} email={email} />}
-
-        <div className="attribution">
-          Challenge by{" "}
-          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
-            Frontend Mentor
-          </a>
-          . Coded by <a href="https://www.frontendmentor.io/profile/Fejiro001">Abere Fejiro</a>.
-        </div>
       </main>
     </>
   );
