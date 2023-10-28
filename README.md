@@ -1,6 +1,6 @@
 # Frontend Mentor - Newsletter sign-up form with success message solution
 
-This is a solution to the [Newsletter sign-up form with success message challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Newsletter sign-up form with success message challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv).
 
 ## Table of contents
 
@@ -14,9 +14,6 @@ This is a solution to the [Newsletter sign-up form with success message challeng
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -34,76 +31,90 @@ Users should be able to:
 
 ### Screenshot
 
-![Newsletter Sign Up form](./screenshot.jpg)
-![Success messqge](./screenshot.jpg)
+![Newsletter Sign Up Form](./src/assets/screenshots/Newsletter%20Sign%20Up%20form.jpg)
+![Error message](./src/assets/screenshots/Error%20message.jpg)
+![Focus and Hove states](./src/assets/screenshots/focus%20and%20hover%20states.jpg)
+![Success Message](./src/assets/screenshots/Success%20message.jpg)
 
 ### Links
 
 - Solution URL: [](https://github.com/Fejiro001/newsletter-sign-up-with-success-message-main)
-- Live Site URL: [](https://your-live-site-url.com)
+- Live Site URL: [](https://newsletter-sign-up-with-success-message-main-q3fuew3gk.vercel.app)
 
 ## My process
 
 ### Built with
 
+- Vite
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Learnt how to call the input field when changes occur, check the email if it follows the regex pattern
+and updates the 'email' state with the current value of the input field:
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+const [email, setEmail] = useState("");
+// checks whether email is valid
+const [isValid, setIsValid] = useState(false);
+const [modal, setModal] = useState(false);
+
+/* Called when the email input field changes.
+It checks the email if it follows the emailRegex pattern
+and updates the 'email' state with the current value of the input field */
+const getEmail = (event) => {
+  const emailRegex = /^\w+([\.%+-]?\w+)+@\w+([\.-]?\w+)+(\.\w{2,})+$/;
+  const valid = emailRegex.test(event.target.value);
+  setEmail(event.target.value);
+  setIsValid(valid);
+};
+
+/* checks if isValid is true and opens the modal if it is */
+const openModal = () => {
+  if (isValid) setModal(true);
+};
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+Learnt how to do conditional rendering of css classes:
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```jsx
+<form onSubmit={onSubmit} className={isValid ? "" : "formInvalid"}>
+  <label htmlFor="email">Email address</label>
+  <input
+    className={isValid ? "valid" : "invalid"}
+    onChange={getEmail}
+    value={email}
+    type="email"
+    id="email"
+    placeholder="email@company.com"
+    title="Please enter a valid email address"
+  />
+  <button onClick={openModal}>Subscribe to monthly newsletter</button>
+</form>
+```
+
+Opened the Modal component using state and passed props to the component:
+
+```jsx
+{modal && <Modal closeModal={setModal} email={email} />}
+```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+Not completely used to React Hooks so going to continue my learning React journey.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- ChatGPT
+- [Deploying a Static site](https://vitejs.dev/guide/static-deploy.html) - This helped me deploy my website.
+- [Modal in ReactJS - Code a React Modal Tutorial using Hooks](https://www.youtube.com/watch?v=ZCvemsUfwPQ&t=197s) - This is helped me learn how to open a modal from a component using a button
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@Fejiro001](https://www.frontendmentor.io/profile/Fejiro001)
+- Twitter - [@aberefejiro](https://twitter.com/aberefejiro)

@@ -15,7 +15,6 @@
     gap: var(--pad);
     padding: var(--pad);
     background-color: var(--white);
-    transition: all;
 }
 
 @media (min-width: 700px) {
