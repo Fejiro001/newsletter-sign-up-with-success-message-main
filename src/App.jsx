@@ -63,12 +63,12 @@ function App() {
 
           <picture>
             <source
-              srcSet="src/assets/images/illustration-sign-up-mobile.svg"
+              srcSet="/illustration-sign-up-mobile.svg"
               media="(orientation: portrait)"
             />
             <img
               className="newsletter-img"
-              src="src/assets/images/illustration-sign-up-desktop.svg"
+              src="/illustration-sign-up-desktop.svg"
               alt="newsletter image"
             />
           </picture>

@@ -111,7 +111,7 @@ article ul li {
     padding-block: .4rem;
     font-size: var(--paragraph-font-size);
     color: var(--dark-slate-grey);
-    background: url(./assets/images/icon-list.svg) left 6px no-repeat;
+    background: url(/icon-list.svg) left 6px no-repeat;
 }
 
 form {

@@ -10,7 +10,7 @@ function Modal({ closeModal, email }) {
       <div className="modal">
         {/* Success message start */}
         <div className="message">
-          <img src="src/assets/images/icon-success.svg" alt='success icon' />
+          <img src="/icon-success.svg" alt='success icon' />
           <h1>Thanks for subscribing!</h1>
           <p>
             A confirmation email has been sent to <strong>{email}</strong>. Please
