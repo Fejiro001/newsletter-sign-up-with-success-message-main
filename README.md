@@ -38,7 +38,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution]([https://github.com/Fejiro001/newsletter-sign-up-with-success-message-main](https://www.frontendmentor.io/solutions/responsive-newsletter-form-using-react-Ah8GXZ2JGi))
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/responsive-newsletter-form-using-react-Ah8GXZ2JGi)
 - Live Site URL: [Live Site](https://newsletter-sign-up-with-success-message-main-khaki.vercel.app/)
 
 ## My process
